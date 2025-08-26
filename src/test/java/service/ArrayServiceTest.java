@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 /*
 Это тестовый класс.
-Тестовый класс держит тестовые методы.
+Тестовый класс содержит тестовые методы.
  */
 
 class ArrayServiceTest {
