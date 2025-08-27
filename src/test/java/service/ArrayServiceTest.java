@@ -1,5 +1,6 @@
 package service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,6 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 class ArrayServiceTest {
+    private ArrayService service;
+
+    @BeforeEach
+    public void setUp() {
+        service = new ArrayService();
+    }
         /*
         Продумываем стратегию тестирования.
         Тест кейсы (что именно тестируем?):
@@ -31,7 +38,6 @@ class ArrayServiceTest {
     // При этом проверяем, не вернулся ли null, вместо массива.
     @Test
     public void checkIfArrayNotNull() {
-        ArrayService service = new ArrayService();
         int[] result = service.generateArrayBySize(5);
         assertNotNull(result, "Метод вернул null, вместо ожидаемого массива");
     }
@@ -41,7 +47,6 @@ class ArrayServiceTest {
     @Test
     public void checkIfArraySizeIsCorrect() {
         int expectedSize = 5; // Ожидаемый размер
-        ArrayService service = new ArrayService();
         int[] result = service.generateArrayBySize(expectedSize);
         int actualSize = result.length; // Актуальный размер
         assertEquals(expectedSize, actualSize, "Метод вернул не корректного размера");
@@ -51,7 +56,6 @@ class ArrayServiceTest {
     // Проверяем, действительно ли метод при этом выбрасывает ожидаемый Exception.
     @Test
     public void checkExceptionIfArraySizeIsNegative() {
-        ArrayService service = new ArrayService();
         assertThrows(
                 IncorrectArraySizeException.class,
                 () -> service.generateArrayBySize(-1),
