@@ -54,7 +54,7 @@ class ProductServiceTest {
     // 4. Проверка работоспособности Exception при добавлении отрицательной цены
     @Test
     public void checkExceptionIfProductPriceIsNull() {
-        Product product = new Product("", -120);
+        Product product = new Product("Помидор", -120);
         assertThrows(ProductInvalidException.class,
                 () -> service.addProduct(product),
                 "Метод не выбросил ожидаемый Exception при добавлении отрицательной цены"
