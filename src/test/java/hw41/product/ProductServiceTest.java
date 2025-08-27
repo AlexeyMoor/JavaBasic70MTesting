@@ -6,11 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductServiceTest {
+    // Добавил изменение (после того как Вы показали такой подход, чтобы избавиться от повторения)
     private ProductService service;
 
     @BeforeEach
     public void setUp() {
-        service = new ProductService(); // Добавил изменение
+        service = new ProductService();
     }
     /*
      Тест кейсы:
