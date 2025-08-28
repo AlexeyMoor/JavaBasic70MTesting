@@ -66,7 +66,8 @@ class ProductServiceTest {
     public void checkAddedProduct() throws ProductInvalidException, ProductNotFoundException {
         Product product = new Product("Огурец", 60);
         service.addProduct(product);
-        Product foundProduct = service.findByTitle("Огурец");
+        Product foundProduct = service.findByTitle(product.getTitle());
+        assertNotNull(foundProduct, "Метод вернул null, вместо ожидаемого продукта");
         assertEquals("Огурец", foundProduct.getTitle(),
                 "Метод вернул не существующее наименование товара");
         assertEquals(60, foundProduct.getPrice(),
