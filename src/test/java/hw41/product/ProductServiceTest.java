@@ -63,7 +63,7 @@ class ProductServiceTest {
 
     // 5. Проверка, что продукт действительно добавлен в "базу данных"
     @Test
-    public void checkAddedProduct() throws ProductInvalidException, ProductNotFoundException {
+    public void checkAddedProduct() throws ProductNotFoundException, ProductInvalidException {
         Product product = new Product("Огурец", 60);
         service.addProduct(product);
         Product foundProduct = service.findByTitle(product.getTitle());
