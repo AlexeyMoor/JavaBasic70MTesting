@@ -38,7 +38,7 @@ class ArrayServiceTest {
     // 4. Передаем положительное значение.
     // При этом проверяем, не вернулся ли null, вместо массива.
     @Test
-    @DisplayName("Проверка, что метод не вернул null")
+    @DisplayName("Проверка, что метод не вернул null, вместо ожидаемого массива")
     public void checkIfArrayNotNull() {
         int[] result = service.generateArrayBySize(5);
         assertNotNull(result, "Метод вернул null, вместо ожидаемого массива");
