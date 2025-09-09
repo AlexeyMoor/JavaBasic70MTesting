@@ -1,6 +1,7 @@
 package hw41.product;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,6 +25,7 @@ class ProductServiceTest {
 
     // 1. Добавление продукта соответствующего всем требованиям
     @Test
+    @DisplayName("Проверка добавления продукта соответствующего всем требованиям")
     public void checkAddProduct() {
         Product product = new Product("Помидор", 120);
         assertDoesNotThrow(() -> service.addProduct(product),
@@ -33,6 +35,7 @@ class ProductServiceTest {
 
     // 2. Проверка работоспособности Exception при добавлении в название продукта null
     @Test
+    @DisplayName("Проверка Exception при добавлении в название продукта null")
     public void checkExceptionIfProductNameIsNull() {
         Product product = new Product(null, 120);
         assertThrows(ProductInvalidException.class,
@@ -43,6 +46,7 @@ class ProductServiceTest {
 
     // 3. Проверка, работоспособности Exception при добавлении в название продукта "пустое значение"
     @Test
+    @DisplayName("Проверка Exception при добавлении в название продукта \"пустое значение\"")
     public void checkExceptionIfProductNameIsEmpty() {
         Product product = new Product(" ", 120);
         assertThrows(ProductInvalidException.class,
@@ -53,6 +57,7 @@ class ProductServiceTest {
 
     // 4. Проверка работоспособности Exception при добавлении отрицательной цены
     @Test
+    @DisplayName("Проверка Exception при добавлении отрицательной цены")
     public void checkExceptionIfProductPriceIsNull() {
         Product product = new Product("Помидор", -120);
         assertThrows(ProductInvalidException.class,
@@ -63,6 +68,7 @@ class ProductServiceTest {
 
     // 5. Проверка, что продукт действительно добавлен в "базу данных"
     @Test
+    @DisplayName("Проверка, что продукт действительно добавлен в \"базу данных\"")
     public void checkAddedProduct() throws ProductNotFoundException, ProductInvalidException {
         Product product = new Product("Огурец", 60);
         service.addProduct(product);
